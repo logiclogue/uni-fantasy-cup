@@ -22,6 +22,7 @@
     "football-score-sim": "file:../football-score-sim",
     "lodash": "^4.17.4",
     "mocha": "^5.0.0",
+    "request": "^2.83.0",
     "request-promise": "^4.2.2"
   }
 }
