@@ -1,0 +1,19 @@
+{
+  "name": "uni-fantasy-cup",
+  "version": "1.0.0",
+  "description": "What if universities were football clubs?",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/logiclogue/uni-fantasy-cup.git"
+  },
+  "author": "Jordan Lord",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/logiclogue/uni-fantasy-cup/issues"
+  },
+  "homepage": "https://github.com/logiclogue/uni-fantasy-cup#readme"
+}
