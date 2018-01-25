@@ -18,8 +18,10 @@
   "homepage": "https://github.com/logiclogue/uni-fantasy-cup#readme",
   "dependencies": {
     "chai": "^4.1.2",
+    "cheerio": "^1.0.0-rc.2",
     "football-score-sim": "file:../football-score-sim",
     "lodash": "^4.17.4",
-    "mocha": "^5.0.0"
+    "mocha": "^5.0.0",
+    "request-promise": "^4.2.2"
   }
 }
