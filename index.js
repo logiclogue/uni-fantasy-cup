@@ -1,6 +1,7 @@
 const _ = require("lodash");
 const cheerio = require("cheerio");
 const request = require("request-promise");
+const Team = require("./src/Team");
 
 const url = "https://www.thecompleteuniversityguide.co.uk/league-tables/rankings";
 
@@ -17,7 +18,8 @@ request(url).then(response => {
         .map(score => score * 1.64)
         .value();
 
-    const teams = _.zipWith(names, ratings, (name, rating) => {return {name: name, rating: rating}});
+    const teams = _.zipWith(names, ratings, (name, rating) =>
+        new Team(name, rating));
 
     console.log(teams);
 });
