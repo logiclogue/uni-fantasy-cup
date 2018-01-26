@@ -28,7 +28,7 @@ request(url).then(response => {
 
     const timeLength = new Time().setMinutes(90);
     const seed = "testing".toSeed();
-    const ratingss = new Match(teams[0], teams[128]).toRatings();
+    const ratingss = new Match(teams[0], teams[1]).toRatings();
     const period = new Period(timeLength, ratingss, seed);
 
     console.log(period.goals);
