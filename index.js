@@ -7,8 +7,10 @@ const goals = require("football-score-sim/src/goalsFromRatings");
 const Time = require("football-score-sim/src/Time");
 const Seed = require("football-score-sim/src/Seed");
 const Period = require("football-score-sim/src/Period");
+const config = require("./config.json");
+const robin = require("roundrobin");
 
-const url = "https://www.thecompleteuniversityguide.co.uk/league-tables/rankings";
+const url = config.url;
 
 request(url).then(response => {
     const $ = cheerio.load(response);
@@ -20,16 +22,16 @@ request(url).then(response => {
     const ratings = _($("tr.league-table-row > td:nth-child(9)"))
         .map(j => j.children[0].data)
         .map(_.toNumber)
-        .map(score => score * 1.64)
+        .map(score => score * config.weighting)
         .value();
 
     const teams = _.zipWith(names, ratings, (name, rating) =>
         new Team(name, rating));
 
-    const timeLength = new Time().setMinutes(90);
     const seed = "testing".toSeed();
-    const ratingss = new Match(teams[0], teams[1]).toRatings();
-    const period = new Period(timeLength, ratingss, seed);
+    const match = new Match(teams[0], teams[1], seed);
 
-    console.log(period.goals);
+    console.log(robin(teams.length, teams));
+
+    console.log(match.period.goals);
 });

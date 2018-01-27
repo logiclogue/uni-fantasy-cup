@@ -23,6 +23,7 @@
     "lodash": "^4.17.4",
     "mocha": "^5.0.0",
     "request": "^2.83.0",
-    "request-promise": "^4.2.2"
+    "request-promise": "^4.2.2",
+    "roundrobin": "^1.0.3"
   }
 }
