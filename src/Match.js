@@ -1,6 +1,7 @@
 const Ratings = require("football-score-sim/src/Ratings");
 const Time = require("football-score-sim/src/Time");
 const Period = require("football-score-sim/src/Period");
+const goals = require("football-score-sim/src/goalsFromRatings");
 
 class Match {
     // Team -> Team -> Seed -> Match
