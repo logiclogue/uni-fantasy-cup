@@ -12,5 +12,4 @@ teams.then(teams => {
     console.log(robin(teams.length, teams));
 
     console.log(match.period.goals);
-
 });
