@@ -14,9 +14,9 @@ function matchToString(match) {
     return home + ' ' + score[0] + '-' + score[1] + ' ' + away;
 }
 
-// Seed -> (Team -> Team -> Match)
+// Seed -> ([Team] -> Match)
 function toMatch(seed) {
-    return (home, away) => new Match(home, away, seed);
+    return teams => new Match(teams[0], teams[1], seed);
 }
 
 teams.then(teams => {
@@ -25,8 +25,11 @@ teams.then(teams => {
     const matches = robin(teams.length, teams);
 
     const results = _(matches)
-        .flatMap(toMatch(seed))
-        .map(matchToString)
+        .map(round =>
+            _(round)
+                .map(toMatch(seed))
+                .map(matchToString)
+                .value())
         .value();
 
     console.log(results);
