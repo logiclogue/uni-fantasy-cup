@@ -16,7 +16,7 @@ function matchToString(match) {
 
 // Seed -> ([Team] -> Match)
 function toMatch(seed) {
-    return teams => new Match(teams[0], teams[1], seed);
+    return teams => new Match(teams, seed);
 }
 
 teams.then(teams => {
