@@ -11,7 +11,9 @@ const teams = require("./src/teams");
 function matchToString(match) {
     const home = match.home.name;
     const away = match.away.name;
-    const score = match.period.goals.value;
+    const score = match.goals.value;
+
+    console.log(home + ' ' + score[0] + '-' + score[1] + ' ' + away);
 
     return home + ' ' + score[0] + '-' + score[1] + ' ' + away;
 }
@@ -42,6 +44,6 @@ teams.then(teams => {
                 .value())
         .value();
 
-    console.log(results);
-    console.log(matchToString(match));
+    //console.log(results);
+    //console.log(matchToString(match));
 });

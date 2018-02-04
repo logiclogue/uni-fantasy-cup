@@ -18,8 +18,27 @@ class Match {
     }
 
     // Match ~> Period
+    get firstHalf() {
+        const timeLength = new Time().setMinutes(45);
+
+        return new Period(timeLength, this.ratings, this.seed);
+    }
+
+    // Match ~> Period
+    get secondHalf() {
+        const timeLength = new Time().setMinutes(45);
+
+        return new Period(timeLength, this.ratings, this.seed);
+    }
+
+    // Match ~> Period
     get period() {
         return new Period(this.timeLength, this.ratings, this.seed);
+    }
+
+    // Match ~> Occurrences
+    get goals() {
+        return this.firstHalf.goals.append(this.secondHalf.goals);
     }
 }
 
