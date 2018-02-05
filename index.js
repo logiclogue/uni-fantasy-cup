@@ -33,7 +33,7 @@ function toMatch(seed) {
 teams.then(teams => {
     const seed = "testing".toSeed();
     const matchLength = new Time().setMinutes(90);
-    const match = new Match([teams[0], teams[1]], seed);
+    const match = new Match(_.take(teams, 2), seed);
     const matches = robin(teams.length, teams);
 
     const results = _(matches)

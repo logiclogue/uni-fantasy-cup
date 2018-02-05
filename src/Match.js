@@ -20,15 +20,17 @@ class Match {
     // Match ~> Period
     get firstHalf() {
         const timeLength = new Time().setMinutes(45);
+        const seed = this.seed.append("firstHalf");
 
-        return new Period(timeLength, this.ratings, this.seed);
+        return new Period(timeLength, this.ratings, seed);
     }
 
     // Match ~> Period
     get secondHalf() {
         const timeLength = new Time().setMinutes(45);
+        const seed = this.seed.append("secondHalf");
 
-        return new Period(timeLength, this.ratings, this.seed);
+        return new Period(timeLength, this.ratings, seed);
     }
 
     // Match ~> Period
