@@ -13,8 +13,6 @@ function matchToString(match) {
     const away = match.away.name;
     const score = match.goals.value;
 
-    console.log(home + ' ' + score[0] + '-' + score[1] + ' ' + away);
-
     return home + ' ' + score[0] + '-' + score[1] + ' ' + away;
 }
 
@@ -44,6 +42,5 @@ teams.then(teams => {
                 .value())
         .value();
 
-    //console.log(results);
-    //console.log(matchToString(match));
+    console.log(results[0]);
 });
