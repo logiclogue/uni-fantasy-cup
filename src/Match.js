@@ -42,6 +42,11 @@ class Match {
     get goals() {
         return this.firstHalf.goals.append(this.secondHalf.goals);
     }
+
+    // Match ~> Nullable a
+    get winner() {
+        return this.goals.winner([this.home, this.away]);
+    }
 }
 
 module.exports = Match;

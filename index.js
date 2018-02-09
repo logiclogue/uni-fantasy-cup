@@ -38,7 +38,9 @@ teams.then(teams => {
         .map(round =>
             _(round)
                 .map(toMatch(seed))
-                .map(matchToString)
+                //.map(matchToString)
+                .map(match => match.winner)
+                .filter(winner => winner !== null)
                 .value())
         .value();
 
