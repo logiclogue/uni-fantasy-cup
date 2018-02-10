@@ -34,6 +34,22 @@ class Match {
     }
 
     // Match ~> Period
+    get firstHalfExtraTime() {
+        const timeLength = new Time().setMinutes(15);
+        const seed = this.seed.append("firstHalfExtraTime");
+
+        return new Period(timeLength, this.ratings, seed);
+    }
+
+    // Match ~> Period
+    get secondHalfExtraTime() {
+        const timeLength = new Time().setMinutes(15);
+        const seed = this.seed.append("secondHalfExtraTime");
+
+        return new Period(timeLength, this.ratings, seed);
+    }
+
+    // Match ~> Period
     get period() {
         return new Period(this.timeLength, this.ratings, this.seed);
     }
