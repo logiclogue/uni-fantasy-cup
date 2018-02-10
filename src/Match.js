@@ -55,8 +55,25 @@ class Match {
     }
 
     // Match ~> Occurrences
-    get goals() {
+    get normalTimeGoals() {
         return this.firstHalf.goals.append(this.secondHalf.goals);
+    }
+
+    // Match ~> Occurrences
+    get extraTimeGoals() {
+        const firstHalfGoals = this.firstHalfExtraTime.goals;
+        const secondHalfGoals = this.secondHalfExtraTime.goals;
+
+        return firstHalfGoals.append(secondHalfGoals);
+    }
+
+    // Match ~> Occurrences
+    get goals() {
+        if (this.normalTimeGoals.isDraw) {
+            return this.normalTimeGoals.append(this.extraTimeGoals);
+        }
+
+        return this.normalTimeGoals;
     }
 
     // Match ~> Nullable a
