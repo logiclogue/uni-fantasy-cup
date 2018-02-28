@@ -1,6 +1,7 @@
 const Ratings = require("football-score-sim/src/Ratings");
 const Time = require("football-score-sim/src/Time");
 const Period = require("football-score-sim/src/Period");
+const PenaltyShootout = require("football-score-sim/src/PenaltyShootout");
 const goals = require("football-score-sim/src/goalsFromRatings");
 
 class Match {
@@ -65,6 +66,11 @@ class Match {
         const secondHalfGoals = this.secondHalfExtraTime.goals;
 
         return firstHalfGoals.append(secondHalfGoals);
+    }
+
+    // Match ~> PenaltyShootout
+    get penaltyShootout() {
+        return PenaltyShootout.empty(2).simulate(this.seed);
     }
 
     // Match ~> Occurrences
