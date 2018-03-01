@@ -11,14 +11,6 @@ describe("Match", () => {
 
     const match = new Match(teams, seed);
 
-    describe("#toRatings()", () => {
-        it("returns the correct ratings", () => {
-            const expected = [1368, 1282].toRatings();
-
-            expect(match.toRatings()).to.deep.equal(expected);
-        });
-    });
-
     describe("#penaltyShootout", () => {
         it("returns a penalty shootout", () => {
             expect(match.penaltyShootout.record).to.deep.equal([
