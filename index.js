@@ -51,7 +51,7 @@ teams.then(teams => {
         match => null,
         (round, n, pair) => new Match(pair, seed.append(round).append(n))
     );
-    const tournament = creator.createRandomTournament(teams, seed);
+    const tournament = creator.createRandomTournament(teams, seed.value);
 
     const output = _(tournament.rounds)
         .map(roundToString)
