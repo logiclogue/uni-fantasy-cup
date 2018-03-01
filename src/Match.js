@@ -92,7 +92,7 @@ class Match {
         return this.normalTimeGoals;
     }
 
-    // Match ~> Nullable Team
+    // Match ~> Team
     get winner() {
         if (this.isPenaltyShootout) {
             return this.penaltyShootout.goals.winner([this.home, this.away]);
