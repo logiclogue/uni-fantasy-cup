@@ -73,6 +73,11 @@ class Match {
         return PenaltyShootout.empty(2).simulate(this.seed);
     }
 
+    // Match ~> Boolean
+    get isPenaltyShootout() {
+        return this.goals.isDraw;
+    }
+
     // Match ~> Occurrences
     get goals() {
         if (this.normalTimeGoals.isDraw) {
