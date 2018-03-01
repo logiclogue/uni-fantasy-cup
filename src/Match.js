@@ -68,6 +68,11 @@ class Match {
         return firstHalfGoals.append(secondHalfGoals);
     }
 
+    // Match ~> Boolean
+    get isExtraTime() {
+        return this.normalTimeGoals.isDraw;
+    }
+
     // Match ~> PenaltyShootout
     get penaltyShootout() {
         return PenaltyShootout.empty(2).simulate(this.seed);

@@ -20,6 +20,26 @@ describe("Match", () => {
         });
     });
 
+    describe("#isExtraTime", () => {
+        context("victory after normal time", () => {
+            it("returns false", () => {
+                const seed = "normal time 1".toSeed();
+                const match = new Match(teams, seed);
+
+                expect(match.isExtraTime).to.be.false;
+            });
+        });
+
+        context("draw after normal time", () => {
+            it("returns true", () => {
+                const seed = "extra time 4".toSeed();
+                const match = new Match(teams, seed);
+
+                expect(match.isExtraTime).to.be.true;
+            });
+        });
+    });
+
     describe("#isPenaltyShootout", () => {
         context("draw after extra time", () => {
             it("returns true", () => {
