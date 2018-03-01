@@ -31,11 +31,22 @@ describe("Match", () => {
         });
 
         context("match won in play", () => {
-            it("return false", () => {
+            it("returns false", () => {
                 const seed = "won".toSeed();
                 const match = new Match(teams, seed);
 
                 expect(match.isPenaltyShootout).to.be.false;
+            });
+        });
+    });
+
+    describe("#winner", () => {
+        context("Bristol win on penalties", () => {
+            it("returns Bristol", () => {
+                const seed = "draw 8".toSeed();
+                const match = new Match(teams, seed);
+
+                expect(match.winner).to.equal(bristol);
             });
         });
     });

@@ -87,8 +87,12 @@ class Match {
         return this.normalTimeGoals;
     }
 
-    // Match ~> Nullable a
+    // Match ~> Nullable Team
     get winner() {
+        if (this.isPenaltyShootout) {
+            return this.penaltyShootout.goals.winner([this.home, this.away]);
+        }
+
         return this.goals.winner([this.home, this.away]);
     }
 }
