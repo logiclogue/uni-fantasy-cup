@@ -14,14 +14,14 @@ function matchToString(match) {
     const away = match.away.name;
     const score = match.goals.value;
 
-    const output = home + ' ' + score[0] + '-' + score[1] + ' ' + away;
+    const output = home + " " + score[0] + "-" + score[1] + " " + away;
 
     if (match.isPenaltyShootout) {
         const score = match.penaltyShootout.goals.value;
 
-        return output + ' (p) ' + score[0] + '-' + score[1];
+        return output + " (p) " + score[0] + "-" + score[1];
     } else if (match.isExtraTime) {
-        return output + ' (aet)'
+        return output + " (aet)"
     }
 
     return output;
