@@ -1,5 +1,5 @@
 const _ = require("lodash");
-const Match = require("./src/Match");
+const Match = require("football-score-sim/src/Match");
 const Seed = require("football-score-sim/src/Seed");
 const times = require("football-score-sim/src/times");
 const Time = require("football-score-sim/src/Time");
@@ -12,7 +12,7 @@ const teams = require("./src/teams");
 function matchToString(match) {
     const home = match.home.name;
     const away = match.away.name;
-    const score = match.goals.value;
+    const score = match.occurrences.goals.value;
 
     const output = home + " " + score[0] + "-" + score[1] + " " + away;
 
@@ -59,4 +59,4 @@ teams.then(teams => {
         .value();
 
     console.log(output);
-});
+}).catch(console.log);
