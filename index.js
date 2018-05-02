@@ -49,7 +49,7 @@ function toMatch(seed) {
 teams.then(teams => {
     const seed = "testing".toSeed();
     const creator = new TournamentCreator(
-        match => match.winner,
+        _.memoize(match => match.winner),
         match => null,
         (round, n, pair) =>
             new PenaltyShootoutMatch(
