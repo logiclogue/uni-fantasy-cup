@@ -1,5 +1,7 @@
 const _ = require("lodash");
 const Match = require("football-score-sim/src/Match");
+const PenaltyShootoutMatch = require("football-score-sim/src/PenaltyShootoutMatch");
+const ExtraTimeMatch = require("football-score-sim/src/ExtraTimeMatch");
 const Seed = require("football-score-sim/src/Seed");
 const times = require("football-score-sim/src/times");
 const Time = require("football-score-sim/src/Time");
@@ -49,7 +51,10 @@ teams.then(teams => {
     const creator = new TournamentCreator(
         match => match.winner,
         match => null,
-        (round, n, pair) => new Match(pair, seed.append(round).append(n))
+        (round, n, pair) =>
+            new PenaltyShootoutMatch(
+                new Match(pair, seed.append(round).append(n))
+                    .toExtraTimeMatch())
     );
     const tournament = creator.createRandomTournament(teams, seed.value);
 
